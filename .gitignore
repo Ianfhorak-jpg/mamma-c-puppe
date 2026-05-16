@@ -1,0 +1,6 @@
+.DS_Store
+*.png
+*.jpg
+.playwright-mcp/
+mamma-*.png
+new-*.png
