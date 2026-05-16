@@ -506,27 +506,49 @@
       font-size: 0.75rem; color: rgba(255,255,255,0.25);
     }
 
-    /* ── COLOR FIXES: dark sections stay dark, light sections use exact original green ── */
-    .hero { background: var(--forest-dark) !important; }
-    .films-section { background: var(--forest-dark) !important; }
-    footer { background: #0D1A12; }
+    /* ── COLOUR SYSTEM: light-first, matching original evelynefaye.com ── */
 
-    /* Speaking section → light mint */
+    /* Hero: image half dark, content half warm white */
+    .hero { background: var(--forest-dark) !important; }
+    .hero-content { background: var(--warm-white) !important; }
+    .hero-content h1 { color: var(--charcoal) !important; }
+    .hero-content .hero-sub { color: #4a4a44 !important; }
+    .hero-content .btn-outline { color: var(--charcoal) !important; border-color: rgba(0,0,0,0.22) !important; }
+    .hero-content .btn-outline:hover { color: var(--gold) !important; border-color: var(--gold) !important; }
+    .hero-award { background: rgba(0,0,0,0.05) !important; border-color: rgba(0,0,0,0.1) !important; backdrop-filter: none !important; }
+    .award-text { color: #4a4a44 !important; }
+
+    /* Films section → cream, light feel */
+    .films-section { background: var(--cream) !important; }
+    .films-section h2 { color: var(--charcoal) !important; }
+    .films-section h2 em { color: #2D6652 !important; }
+    .films-section .section-eyebrow { color: var(--gold) !important; }
+    .film-meta-item { color: #999 !important; text-transform: uppercase; letter-spacing: 0.08em; }
+    .film-meta-item strong { color: var(--charcoal) !important; }
+    .film-desc { color: #4a4a44 !important; }
+    .press-quote { color: #5a5a52 !important; }
+    .film-upcoming { border-top-color: rgba(0,0,0,0.08) !important; }
+    .film-upcoming h3 { color: var(--charcoal) !important; }
+    .film-upcoming p { color: #4a4a44 !important; }
+    .film-upcoming-label { color: var(--gold) !important; }
+    .film-upcoming-label::before { background: var(--gold) !important; }
+
+    /* Speaking section → exact original mint */
     .speaking-section { background: var(--forest) !important; }
     .speaking-section h2 { color: var(--charcoal) !important; }
     .speaking-section h2 em { color: #2D6652 !important; }
     .speaking-section .section-eyebrow { color: var(--gold) !important; }
-    .speaking-section > .container > .speaking-inner > div > p { color: #4a4a44 !important; }
-    .audience-item { background: rgba(0,0,0,0.04) !important; border: 1px solid rgba(0,0,0,0.06) !important; }
+    .audience-item { background: rgba(0,0,0,0.04) !important; border-color: rgba(0,0,0,0.06) !important; }
     .audience-item:hover { background: rgba(201,169,110,0.15) !important; }
     .audience-title { color: var(--charcoal) !important; }
     .audience-desc { color: #4a4a44 !important; }
     .stat-item { border-color: rgba(0,0,0,0.12) !important; }
     .stat-label { color: rgba(0,0,0,0.45) !important; }
-    .speaking-section .btn-primary { background: #2D6652; color: white; }
-    .speaking-section .btn-primary:hover { background: #1A3228; }
+    .speaking-section .btn-primary { background: #2D6652 !important; color: white !important; }
+    .speaking-section .btn-primary:hover { background: #1A3228 !important; }
+    .speaking-section p { color: #4a4a44 !important; }
 
-    /* Newsletter section → light mint */
+    /* Newsletter section → exact original mint */
     .newsletter-section { background: var(--forest) !important; }
     .newsletter-section h2 { color: var(--charcoal) !important; }
     .newsletter-section h2 em { color: #2D6652 !important; }
@@ -534,13 +556,17 @@
     .newsletter-section p { color: #4a4a44 !important; }
     .newsletter-form input { background: white !important; border-color: rgba(0,0,0,0.15) !important; color: var(--charcoal) !important; }
     .newsletter-form input::placeholder { color: #aaa !important; }
-    .newsletter-form button { background: #2D6652; color: white; }
-    .newsletter-form button:hover { background: #1A3228; }
+    .newsletter-form button { background: #2D6652 !important; color: white !important; }
+    .newsletter-form button:hover { background: #1A3228 !important; }
     .newsletter-privacy { color: rgba(0,0,0,0.4) !important; }
 
-    /* Fix button text on gold: use dark green instead of light --forest */
+    /* Footer stays dark */
+    footer { background: #0D1A12 !important; }
+
+    /* Gold button text: dark so it's legible */
     .btn-primary { color: #1A3228 !important; }
     .nav-cta { color: #1A3228 !important; }
+    h2 em { color: #2D6652; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
