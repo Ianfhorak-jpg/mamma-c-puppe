@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Über mich – Evelyne Faye</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --forest:#1C3226;--forest2:#243D30;--gold:#C9A96E;--gold-lt:#E2C99A;
+      --cream:#F5F0E8;--warm-white:#FDFAF5;--charcoal:#1A1A18;--mid:#5C6B5E;
+      --border:rgba(201,169,110,0.22);
+      --font-head:'Cormorant',Georgia,serif;--font-body:'Jost',system-ui,sans-serif;
+      --container:1200px;--sp:clamp(5rem,9vw,9rem);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);background:var(--warm-white);color:var(--charcoal);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 clamp(1.5rem,5vw,4rem);height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(28,50,38,0.97);backdrop-filter:blur(10px);box-shadow:0 2px 32px rgba(0,0,0,0.2)}
+    .nav-logo{font-family:var(--font-head);font-size:1.2rem;font-weight:500;color:white;text-decoration:none}
+    .nav-logo span{color:var(--gold);font-style:italic}
+    .nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+    .nav-links a{font-size:0.78rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+    .nav-cta{background:var(--gold)!important;color:var(--forest)!important;padding:0.5rem 1.25rem;border-radius:3px;font-weight:500!important}
+
+    /* PAGE HEADER */
+    .page-header{background:var(--forest);padding:clamp(7rem,12vw,11rem) clamp(1.5rem,5vw,4rem) clamp(4rem,7vw,7rem);text-align:center}
+    .page-eyebrow{font-size:0.72rem;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+    .page-eyebrow::before,.page-eyebrow::after{content:'';width:40px;height:1px;background:var(--gold)}
+    h1{font-family:var(--font-head);font-size:clamp(3rem,6vw,6rem);font-weight:300;color:white;line-height:1.08}
+    h1 em{font-style:italic;color:var(--gold)}
+
+    /* SECTIONS */
+    section{padding:var(--sp) clamp(1.5rem,5vw,4rem)}
+    .container{max-width:var(--container);margin:0 auto}
+    .section-eyebrow{font-size:0.72rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem}
+    .section-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+    h2{font-family:var(--font-head);font-size:clamp(2rem,4vw,3.5rem);font-weight:300;line-height:1.1;color:var(--charcoal);margin-bottom:1.5rem}
+    h2 em{font-style:italic;color:var(--forest)}
+    p{font-size:0.95rem;font-weight:300;color:#4a4a44;line-height:1.85;margin-bottom:1.25rem}
+
+    /* STORY SPLIT */
+    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+    .story-img{position:relative}
+    .story-img::before{content:'';position:absolute;top:-1.5rem;left:-1.5rem;right:1.5rem;bottom:1.5rem;border:2px solid var(--gold);border-radius:8px;opacity:0.4;z-index:0}
+    .story-img img{width:100%;border-radius:8px;box-shadow:0 16px 48px rgba(28,50,38,0.15);display:block;position:relative;z-index:1}
+
+    /* TIMELINE */
+    .timeline{margin-top:3rem}
+    .tl-item{display:grid;grid-template-columns:80px 1fr;gap:1.25rem;padding:1.25rem 0;border-bottom:1px solid rgba(28,50,38,0.08)}
+    .tl-year{font-family:var(--font-head);font-size:1.1rem;color:var(--gold);font-weight:400;padding-top:0.1rem}
+    .tl-event{font-size:0.9rem;font-weight:300;color:#4a4a44;line-height:1.65}
+    .tl-event strong{font-weight:500;color:var(--charcoal);display:block;margin-bottom:0.15rem}
+
+    /* VALUES */
+    .values-section{background:var(--cream)}
+    .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+    .value-card{padding:2.25rem 2rem;background:white;border-radius:8px;border-top:3px solid var(--gold);box-shadow:0 4px 24px rgba(28,50,38,0.06)}
+    .value-icon{font-size:2rem;margin-bottom:1rem;display:block}
+    .value-title{font-family:var(--font-head);font-size:1.4rem;color:var(--charcoal);margin-bottom:0.5rem}
+    .value-desc{font-size:0.88rem;color:#5a5a52;line-height:1.75;font-weight:300}
+
+    /* CTA STRIP */
+    .cta-strip{background:var(--forest);padding:clamp(3rem,6vw,6rem) clamp(1.5rem,5vw,4rem);text-align:center}
+    .cta-strip h2{color:white;margin-bottom:1rem}
+    .cta-strip h2 em{color:var(--gold)}
+    .cta-strip p{color:rgba(255,255,255,0.6);max-width:50ch;margin:0 auto 2.5rem}
+    .btn{display:inline-flex;align-items:center;gap:0.6rem;background:var(--gold);color:var(--forest);font-family:var(--font-body);font-size:0.8rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:1rem 2rem;border-radius:3px;text-decoration:none;transition:background 0.2s,transform 0.2s}
+    .btn:hover{background:var(--gold-lt);transform:translateY(-1px)}
+
+    /* FOOTER */
+    footer{background:#0F1E15;padding:2.5rem clamp(1.5rem,5vw,4rem)}
+    .footer-bottom{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(255,255,255,0.25);flex-wrap:wrap;gap:1rem}
+    .footer-links-row{display:flex;gap:1.5rem}
+    .footer-links-row a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.75rem;transition:color 0.2s}
+    .footer-links-row a:hover{color:var(--gold-lt)}
+
+    @media(max-width:900px){.story-grid{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr}.nav-links{display:none}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="evelyne-redesign.html" class="nav-logo">Evelyne <span>Faye</span></a>
+  <ul class="nav-links">
+    <li><a href="ueber-mich.html" class="active">Über mich</a></li>
+    <li><a href="filme.html">Filme</a></li>
+    <li><a href="buecher.html">Bücher</a></li>
+    <li><a href="evelyne-redesign.html#vortraege">Vorträge</a></li>
+    <li><a href="index.html">Mamma C. Puppe™</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Anfragen</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="page-eyebrow">Über mich</p>
+  <h1>Filmemacherin.<br><em>Brückenbauerin.</em></h1>
+</div>
+
+<section>
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img">
+        <img src="https://evelynefaye.com/wp-content/uploads/2025/06/Evelyne-Faye-1-768x1024.jpg"
+          alt="Evelyne Faye"
+          onerror="this.style.minHeight='600px';this.style.background='var(--forest)';this.style.borderRadius='8px'">
+      </div>
+      <div>
+        <p class="section-eyebrow">Meine Geschichte</p>
+        <h2>Was mich <em>bewegt</em></h2>
+        <p>Aufgewachsen in der Pariser Banlieue, studiert in Bonn (Wirtschaft und Romanistik), gelebt in Wien – mein Leben ist geprägt von Grenzerfahrungen und Begegnungen, die Perspektiven verändern.</p>
+        <p>Ich habe als Regieassistentin und Produktionskoordinatorin im Dokumentarfilm gearbeitet, beim Roten Kreuz als Sanitäterin und bei Ärzte ohne Grenzen in der HR-Abteilung in Wien.</p>
+        <p>2012 wurde meine Tochter Emma Lou mit Down-Syndrom geboren. Dieser Moment veränderte alles – und gab meiner Arbeit eine neue, tiefere Richtung. Seither schaffe ich Filme, Bücher und Vorträge, die eines gemeinsam haben: Sie bauen Brücken zwischen verschiedenen Welten.</p>
+        <p>Ich lebe mit meinen drei Kindern in Wien und glaube daran, dass jeder Mensch durch kleine Schritte Großes bewegen kann – mit Humor, Kreativität und Offenheit.</p>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-year">2012</span>
+            <div class="tl-event"><strong>Der Wendepunkt</strong>Geburt von Tochter Emma Lou mit Down-Syndrom</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2014</span>
+            <div class="tl-event"><strong>Erstes Buch</strong>»Du bist da – und du bist wunderschön«, illustriert von Birgit Lang</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2016</span>
+            <div class="tl-event"><strong>Master-Abschluss</strong>Interkulturelle Kompetenz</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2022</span>
+            <div class="tl-event"><strong>Debüt-Dokumentarfilm</strong>»Lass mich fliegen« – Premiere bei den Hofer Filmtagen</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2023</span>
+            <div class="tl-event"><strong>Franz Grabner Preis</strong>Bester Kinodokumentarfilm + Romy Nominierung + »Das Dingsda« erscheint</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2025</span>
+            <div class="tl-event"><strong>Mamma C. Puppe™</strong>Launch der therapeutischen Aufklärungspuppe für Brustkrebsbetroffene</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2026</span>
+            <div class="tl-event"><strong>»Mixed Feelings«</strong>Neuer Dokumentarfilm in Produktion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values-section">
+  <div class="container">
+    <p class="section-eyebrow">Wofür ich stehe</p>
+    <h2>Werte, die meine <em>Arbeit prägen</em></h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <span class="value-icon">🎬</span>
+        <p class="value-title">Authentisches Erzählen</p>
+        <p class="value-desc">Echte Geschichten, echte Menschen, echte Emotionen. Kein Mitleid, keine Klischees – sondern Begegnung auf Augenhöhe.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🌍</span>
+        <p class="value-title">Inklusion leben</p>
+        <p class="value-desc">Diversität ist keine PR-Botschaft, sondern gelebte Realität. Ich zeige Welten, die viele noch nicht kennen – und mache sie verständlich.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">😄</span>
+        <p class="value-title">Humor als Brücke</p>
+        <p class="value-desc">Schwere Themen brauchen Leichtigkeit. Humor öffnet Herzen und Türen – ohne die Tiefe zu verlieren.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Bereit, <em>gemeinsam etwas zu bewegen?</em></h2>
+  <p>Film buchen, Vortrag anfragen oder einfach Kontakt aufnehmen – ich freue mich darauf.</p>
+  <a href="kontakt.html" class="btn">Jetzt anfragen</a>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <span style="font-family:'Cormorant',serif;font-size:1rem;color:rgba(255,255,255,0.5)">Evelyne <span style="color:#C9A96E;font-style:italic">Faye</span></span>
+    <div class="footer-links-row">
+      <a href="evelyne-redesign.html">Home</a>
+      <a href="filme.html">Filme</a>
+      <a href="buecher.html">Bücher</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </div>
+    <span>© 2025 Evelyne Faye</span>
+  </div>
+</footer>
+
+</body>
+</html>

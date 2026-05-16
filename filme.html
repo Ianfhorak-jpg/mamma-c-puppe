@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filme – Evelyne Faye</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --forest:#1C3226;--forest2:#243D30;--gold:#C9A96E;--gold-lt:#E2C99A;
+      --cream:#F5F0E8;--warm-white:#FDFAF5;--charcoal:#1A1A18;
+      --border:rgba(201,169,110,0.22);
+      --font-head:'Cormorant',Georgia,serif;--font-body:'Jost',system-ui,sans-serif;
+      --container:1200px;--sp:clamp(5rem,9vw,9rem);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);background:var(--charcoal);color:white;font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 clamp(1.5rem,5vw,4rem);height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,30,21,0.97);backdrop-filter:blur(10px)}
+    .nav-logo{font-family:var(--font-head);font-size:1.2rem;font-weight:500;color:white;text-decoration:none}
+    .nav-logo span{color:var(--gold);font-style:italic}
+    .nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+    .nav-links a{font-size:0.78rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.75);text-decoration:none;transition:color 0.2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+    .nav-cta{background:var(--gold)!important;color:var(--forest)!important;padding:0.5rem 1.25rem;border-radius:3px;font-weight:500!important}
+
+    /* HERO */
+    .films-hero{background:var(--forest);padding:clamp(7rem,12vw,11rem) clamp(1.5rem,5vw,4rem) clamp(4rem,7vw,7rem);text-align:center;position:relative;overflow:hidden}
+    .films-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(201,169,110,0.08),transparent 70%)}
+    .eyebrow{font-size:0.72rem;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+    .eyebrow::before,.eyebrow::after{content:'';width:40px;height:1px;background:var(--gold)}
+    h1{font-family:var(--font-head);font-size:clamp(3rem,6vw,6rem);font-weight:300;color:white;line-height:1.08}
+    h1 em{font-style:italic;color:var(--gold)}
+    .hero-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,0.6);max-width:50ch;margin:1.5rem auto 0;line-height:1.8}
+
+    /* FILM CARD */
+    section{padding:var(--sp) clamp(1.5rem,5vw,4rem)}
+    .container{max-width:var(--container);margin:0 auto}
+
+    .film-card{display:grid;grid-template-columns:400px 1fr;gap:4rem;align-items:center;margin-bottom:6rem;padding-bottom:6rem;border-bottom:1px solid rgba(255,255,255,0.07)}
+    .film-card:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .film-card.reverse{direction:rtl}
+    .film-card.reverse>*{direction:ltr}
+
+    .film-poster{position:relative;border-radius:8px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.5);flex-shrink:0}
+    .film-poster img{width:100%;display:block;filter:brightness(0.85) saturate(0.9)}
+    .film-poster-overlay{position:absolute;bottom:0;left:0;right:0;padding:2rem;background:linear-gradient(to top,rgba(28,50,38,0.95),transparent)}
+    .film-runtime{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:0.3rem}
+    .film-poster-title{font-family:var(--font-head);font-size:1.6rem;color:white;font-weight:300;line-height:1.1}
+
+    .se-eyebrow{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem}
+    .se-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+    h2{font-family:var(--font-head);font-size:clamp(2rem,3.5vw,3.5rem);font-weight:300;line-height:1.1;color:white;margin-bottom:1.25rem}
+    h2 em{font-style:italic;color:var(--gold)}
+
+    .meta-row{display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
+    .meta-item{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.4)}
+    .meta-item strong{display:block;color:var(--gold-lt);font-size:0.85rem;margin-top:0.15rem;font-weight:500;text-transform:none;letter-spacing:0}
+
+    .film-desc{font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:2rem}
+
+    .press-quotes{display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem}
+    .press-quote{font-family:var(--font-head);font-style:italic;font-size:0.95rem;color:rgba(255,255,255,0.55);padding-left:1rem;border-left:2px solid var(--gold)}
+    .press-source{font-style:normal;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em}
+
+    .awards{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2.5rem}
+    .award{font-size:0.7rem;letter-spacing:0.07em;background:rgba(201,169,110,0.1);border:1px solid var(--border);color:var(--gold-lt);padding:0.35rem 0.75rem;border-radius:3px}
+
+    .btn{display:inline-flex;align-items:center;gap:0.6rem;background:var(--gold);color:var(--forest);font-family:var(--font-body);font-size:0.8rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:1rem 2rem;border-radius:3px;text-decoration:none;transition:background 0.2s,transform 0.2s}
+    .btn:hover{background:var(--gold-lt);transform:translateY(-1px)}
+    .btn-outline{background:transparent;color:white;border:1px solid rgba(255,255,255,0.25);margin-left:1rem}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+    /* UPCOMING */
+    .upcoming-section{background:var(--forest2)}
+    .upcoming-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .upcoming-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(201,169,110,0.12);border:1px solid var(--border);padding:0.4rem 1rem;border-radius:3px;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+    .upcoming-badge::before{content:'●';color:var(--gold);font-size:0.5rem}
+    .upcoming-desc{font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.8;font-weight:300;margin:1.25rem 0 2.5rem}
+
+    /* CTA */
+    .booking-section{background:var(--forest);text-align:center}
+    .booking-inner{max-width:700px;margin:0 auto}
+    .booking-inner h2{margin-bottom:1rem}
+    .booking-inner p{color:rgba(255,255,255,0.6);font-size:0.95rem;margin-bottom:2.5rem}
+
+    footer{background:#0F1E15;padding:2.5rem clamp(1.5rem,5vw,4rem)}
+    .footer-bottom{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(255,255,255,0.25);flex-wrap:wrap;gap:1rem}
+    .footer-links-row{display:flex;gap:1.5rem}
+    .footer-links-row a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.75rem;transition:color 0.2s}
+    .footer-links-row a:hover{color:var(--gold-lt)}
+
+    @media(max-width:900px){.film-card,.upcoming-inner{grid-template-columns:1fr}.film-card.reverse{direction:ltr}.nav-links{display:none}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="evelyne-redesign.html" class="nav-logo">Evelyne <span>Faye</span></a>
+  <ul class="nav-links">
+    <li><a href="ueber-mich.html">Über mich</a></li>
+    <li><a href="filme.html" class="active">Filme</a></li>
+    <li><a href="buecher.html">Bücher</a></li>
+    <li><a href="evelyne-redesign.html#vortraege">Vorträge</a></li>
+    <li><a href="index.html">Mamma C. Puppe™</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Anfragen</a></li>
+  </ul>
+</nav>
+
+<div class="films-hero">
+  <p class="eyebrow">Filmografie</p>
+  <h1>Filme, die <em>Brücken bauen</em></h1>
+  <p class="hero-sub">Dokumentarfilme, die echte Menschen zeigen, Vorurteile herausfordern und eine Welt sichtbar machen, in der Verschiedensein selbstverständlich ist.</p>
+</div>
+
+<section style="background:var(--charcoal)">
+  <div class="container">
+
+    <!-- FILM 1 -->
+    <div class="film-card">
+      <div class="film-poster">
+        <img src="https://evelynefaye.com/wp-content/uploads/2023/10/Lass-mich-fliegen-Poster-768x1024.jpg"
+          alt="Lass mich fliegen – Filmplakat"
+          onerror="this.parentElement.style.background='var(--forest)';this.parentElement.style.minHeight='500px';this.style.display='none'">
+        <div class="film-poster-overlay">
+          <div class="film-runtime">Österreich · 2022 · 80 Min</div>
+          <div class="film-poster-title">Lass mich fliegen</div>
+        </div>
+      </div>
+
+      <div>
+        <p class="se-eyebrow">Debütfilm · 2022</p>
+        <h2>Lass mich <em>fliegen</em></h2>
+        <div class="meta-row">
+          <div class="meta-item">Regie<strong>Evelyne Faye</strong></div>
+          <div class="meta-item">Jahr<strong>2022</strong></div>
+          <div class="meta-item">Länge<strong>80 Minuten</strong></div>
+          <div class="meta-item">Land<strong>Österreich</strong></div>
+        </div>
+        <p class="film-desc">Vier junge Erwachsene mit Down-Syndrom. Vier Leben voller Mut, Humor und der tiefen Sehnsucht nach einem selbstbestimmten Dasein. Ein Film über das Streben nach Glück, die Normalität des Andersseins und die dringende Notwendigkeit von Inklusion in unserer Gesellschaft.</p>
+        <div class="press-quotes">
+          <div class="press-quote">„Ein beglückender Film" <span class="press-source">– Falter</span></div>
+          <div class="press-quote">„Gesellschaftlich relevant, klug und beim Menschen" <span class="press-source">– ORF</span></div>
+          <div class="press-quote">„Einfühlsam und berührend" <span class="press-source">– Woman Magazin</span></div>
+          <div class="press-quote">„Behutsam, aber eindringlich und sehr emotional" <span class="press-source">– TV Media</span></div>
+        </div>
+        <div class="awards">
+          <span class="award">🏆 Franz Grabner Preis 2023</span>
+          <span class="award">🎬 Romy Nominierung</span>
+          <span class="award">🎭 Hofer Filmtage 2022</span>
+          <span class="award">🌍 This Human World 2022</span>
+          <span class="award">👁 Human Vision 2023</span>
+          <span class="award">📽 Diagonale 2023</span>
+        </div>
+        <a href="kontakt.html" class="btn">Film & Vortrag buchen</a>
+        <a href="kontakt.html" class="btn btn-outline">Anfrage stellen</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- UPCOMING FILM -->
+<section class="upcoming-section">
+  <div class="container">
+    <div class="upcoming-inner">
+      <div>
+        <span class="upcoming-badge">In Produktion · 2026</span>
+        <h2>Mixed <em>Feelings</em></h2>
+        <p class="upcoming-desc">Eine neue Dokumentation über die Black Experience in Österreich – zwischen ungewollter Sichtbarkeit und gesellschaftlicher Unsichtbarkeit. Generationsübergreifend. Persönlich. Notwendig.</p>
+        <a href="kontakt.html" class="btn">Updates & Infos anfragen</a>
+      </div>
+      <div style="padding:3rem;background:rgba(0,0,0,0.15);border-radius:8px;border:1px solid rgba(255,255,255,0.06);text-align:center">
+        <div style="font-family:'Cormorant',serif;font-size:4rem;font-weight:300;color:rgba(255,255,255,0.1);line-height:1;margin-bottom:1rem">2026</div>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.4);font-weight:300;">Produktionsbeginn · Österreich</p>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.3);font-weight:300;margin-top:0.5rem;">90 Minuten · Dokumentarfilm</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section class="booking-section">
+  <div class="booking-inner">
+    <p class="eyebrow" style="justify-content:center">Filmvorführung</p>
+    <h2>Film & Vortrag <em>buchen</em></h2>
+    <p>Exklusive Filmvorführungen mit Vortrag und Publikumsgespräch – für Unternehmen, Schulen und Hochschulen. Inklusion erleben statt nur darüber reden.</p>
+    <a href="kontakt.html" class="btn">Jetzt anfragen</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <span style="font-family:'Cormorant',serif;font-size:1rem;color:rgba(255,255,255,0.5)">Evelyne <span style="color:#C9A96E;font-style:italic">Faye</span></span>
+    <div class="footer-links-row">
+      <a href="evelyne-redesign.html">Home</a>
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="buecher.html">Bücher</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="#">Impressum</a>
+    </div>
+    <span>© 2025 Evelyne Faye</span>
+  </div>
+</footer>
+
+</body>
+</html>
