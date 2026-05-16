@@ -13,8 +13,9 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --forest:  #4A7B68;
-      --forest2: #38614F;
+      --forest:  #C2DECF;
+      --forest-dark: #1A3228;
+      --forest2: #A8D0BC;
       --gold:    #C9A96E;
       --gold-lt: #E2C99A;
       --cream:   #F5F0E8;
@@ -505,6 +506,42 @@
       font-size: 0.75rem; color: rgba(255,255,255,0.25);
     }
 
+    /* ── COLOR FIXES: dark sections stay dark, light sections use exact original green ── */
+    .hero { background: var(--forest-dark) !important; }
+    .films-section { background: var(--forest-dark) !important; }
+    footer { background: #0D1A12; }
+
+    /* Speaking section → light mint */
+    .speaking-section { background: var(--forest) !important; }
+    .speaking-section h2 { color: var(--charcoal) !important; }
+    .speaking-section h2 em { color: #2D6652 !important; }
+    .speaking-section .section-eyebrow { color: var(--gold) !important; }
+    .speaking-section > .container > .speaking-inner > div > p { color: #4a4a44 !important; }
+    .audience-item { background: rgba(0,0,0,0.04) !important; border: 1px solid rgba(0,0,0,0.06) !important; }
+    .audience-item:hover { background: rgba(201,169,110,0.15) !important; }
+    .audience-title { color: var(--charcoal) !important; }
+    .audience-desc { color: #4a4a44 !important; }
+    .stat-item { border-color: rgba(0,0,0,0.12) !important; }
+    .stat-label { color: rgba(0,0,0,0.45) !important; }
+    .speaking-section .btn-primary { background: #2D6652; color: white; }
+    .speaking-section .btn-primary:hover { background: #1A3228; }
+
+    /* Newsletter section → light mint */
+    .newsletter-section { background: var(--forest) !important; }
+    .newsletter-section h2 { color: var(--charcoal) !important; }
+    .newsletter-section h2 em { color: #2D6652 !important; }
+    .newsletter-section .section-eyebrow { color: var(--gold) !important; }
+    .newsletter-section p { color: #4a4a44 !important; }
+    .newsletter-form input { background: white !important; border-color: rgba(0,0,0,0.15) !important; color: var(--charcoal) !important; }
+    .newsletter-form input::placeholder { color: #aaa !important; }
+    .newsletter-form button { background: #2D6652; color: white; }
+    .newsletter-form button:hover { background: #1A3228; }
+    .newsletter-privacy { color: rgba(0,0,0,0.4) !important; }
+
+    /* Fix button text on gold: use dark green instead of light --forest */
+    .btn-primary { color: #1A3228 !important; }
+    .nav-cta { color: #1A3228 !important; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; }
@@ -554,7 +591,7 @@
 <section class="hero" id="top">
   <div class="hero-img-half">
     <img
-      src="https://evelynefaye.com/wp-content/uploads/2025/09/BalanceUp_FAYE.jpg"
+      src="images/evelyne-hero.jpg"
       alt="Evelyne Faye"
       onerror="this.style.display='none'"
     >
@@ -619,7 +656,7 @@
     <div class="film-feature">
       <div class="film-poster">
         <img
-          src="https://evelynefaye.com/wp-content/uploads/2025/02/Plakat_LASS_MICH_FLIEGEN_polyfilm-scaled.jpg"
+          src="images/film-poster.jpg"
           alt="Lass mich fliegen – Filmplakat"
           onerror="this.style.display='none'"
         >
@@ -682,7 +719,7 @@
 
     <div class="books-grid">
       <div class="book-card">
-        <img class="book-cover" src="https://evelynefaye.com/wp-content/uploads/2025/04/dubistda_Buch-Cover.png" alt="Du bist da – Buchcover" onerror="this.style.background='var(--forest)';this.style.display='block'">
+        <img class="book-cover" src="images/buch-du-bist-da.png" alt="Du bist da – Buchcover" onerror="this.style.background='var(--forest)';this.style.display='block'">
         <div>
           <p class="book-year">2014 · Neuauflage 2022</p>
           <h3 class="book-title">Du bist da – und du bist wunderschön</h3>
@@ -693,7 +730,7 @@
       </div>
 
       <div class="book-card">
-        <img class="book-cover" src="https://evelynefaye.com/wp-content/uploads/2025/04/Screenshot-2023-10-17-at-22_09_23.png" alt="Das Dingsda – Buchcover" onerror="this.style.background='var(--forest)';this.style.display='block'">
+        <img class="book-cover" src="images/buch-dingsda.png" alt="Das Dingsda – Buchcover" onerror="this.style.background='var(--forest)';this.style.display='block'">
         <div>
           <p class="book-year">2023</p>
           <h3 class="book-title">Das Dingsda</h3>
@@ -769,7 +806,7 @@
     <div class="about-inner">
       <div class="about-img">
         <img
-          src="https://evelynefaye.com/wp-content/uploads/2025/09/Evelyne-FranzGrabnerPreis-1024x682.jpg"
+          src="images/evelyne-award.jpg"
           alt="Evelyne Faye – Franz Grabner Preis"
           onerror="this.style.minHeight='400px';this.style.background='var(--forest)'"
         >

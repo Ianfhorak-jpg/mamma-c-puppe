@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--forest:#4A7B68;--forest2:#38614F;--gold:#C9A96E;--gold-lt:#E2C99A;--cream:#F5F0E8;--warm-white:#FDFAF5;--charcoal:#1A1A18;--border:rgba(201,169,110,0.22);--font-head:'Cormorant',Georgia,serif;--font-body:'Jost',system-ui,sans-serif;--container:1200px;--sp:clamp(5rem,9vw,9rem)}
+    :root{--forest:#C2DECF;--forest2:#A8D0BC;--gold:#C9A96E;--gold-lt:#E2C99A;--cream:#F5F0E8;--warm-white:#FDFAF5;--charcoal:#1A1A18;--border:rgba(201,169,110,0.22);--font-head:'Cormorant',Georgia,serif;--font-body:'Jost',system-ui,sans-serif;--container:1200px;--sp:clamp(5rem,9vw,9rem)}
     html{scroll-behavior:smooth}
     body{font-family:var(--font-body);background:var(--warm-white);color:var(--charcoal);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
     nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 clamp(1.5rem,5vw,4rem);height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(28,50,38,0.97);backdrop-filter:blur(10px)}
@@ -86,6 +86,12 @@
     .footer-links-row a:hover{color:var(--gold-lt)}
 
     @media(max-width:900px){.page-header-inner,.book-detail,.schools-inner{grid-template-columns:1fr}.nav-links{display:none}}
+    .author-note{background:#1A3228!important}
+    h1 em,h2 em,h3 em{color:#2D6652!important}
+    .where-title{color:#2D6652!important}
+    .btn{color:#1A3228!important}
+    .btn-ghost{color:#2D6652!important;border-color:rgba(45,102,82,0.3)!important}
+    .nav-cta{color:#1A3228!important}
   </style>
 </head>
 <body>
@@ -120,7 +126,7 @@
     <!-- BOOK 1 -->
     <div class="book-detail">
       <div class="book-cover-wrap">
-        <img src="https://evelynefaye.com/wp-content/uploads/2025/04/dubistda_Buch-Cover.png" alt="Du bist da – Buchcover" style="width:100%;border-radius:6px;box-shadow:0 16px 48px rgba(0,0,0,0.15);display:block;position:relative;z-index:1" onerror="this.outerHTML='<div class=book-cover><span class=book-cover-emoji>📖</span></div>'">
+        <img src="images/buch-du-bist-da.png" alt="Du bist da – Buchcover" style="width:100%;border-radius:6px;box-shadow:0 16px 48px rgba(0,0,0,0.15);display:block;position:relative;z-index:1" onerror="this.outerHTML='<div class=book-cover><span class=book-cover-emoji>📖</span></div>'">
       </div>
       <div>
         <p class="book-year">2014 · Neuauflage 2022</p>
@@ -146,7 +152,7 @@
     <!-- BOOK 2 -->
     <div class="book-detail">
       <div class="book-cover-wrap">
-        <img src="https://evelynefaye.com/wp-content/uploads/2025/04/Screenshot-2023-10-17-at-22_09_23.png" alt="Das Dingsda – Buchcover" style="width:100%;border-radius:6px;box-shadow:0 16px 48px rgba(0,0,0,0.15);display:block;position:relative;z-index:1" onerror="this.outerHTML='<div class=book-cover><span class=book-cover-emoji>📗</span></div>'">
+        <img src="images/buch-dingsda.png" alt="Das Dingsda – Buchcover" style="width:100%;border-radius:6px;box-shadow:0 16px 48px rgba(0,0,0,0.15);display:block;position:relative;z-index:1" onerror="this.outerHTML='<div class=book-cover><span class=book-cover-emoji>📗</span></div>'">
       </div>
       <div>
         <p class="book-year">2023</p>
