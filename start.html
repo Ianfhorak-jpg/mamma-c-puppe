@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evelyne Faye – Website Redesign Präsentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--forest:#1C3226;--gold:#C9A96E;--cream:#F5F0E8;--charcoal:#1A1A18}
+    body{font-family:'Jost',sans-serif;background:var(--forest);color:white;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;-webkit-font-smoothing:antialiased}
+
+    .hub{max-width:900px;width:100%;text-align:center}
+
+    .eyebrow{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+    .eyebrow::before,.eyebrow::after{content:'';width:40px;height:1px;background:var(--gold)}
+
+    h1{font-family:'Cormorant',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:300;line-height:1.1;margin-bottom:0.75rem}
+    h1 em{font-style:italic;color:var(--gold)}
+    .subtitle{font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);margin-bottom:4rem;line-height:1.7}
+
+    .sites{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:3rem}
+
+    .site-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:2.5rem 2rem;text-decoration:none;color:white;text-align:left;transition:background 0.25s,border-color 0.25s,transform 0.25s;position:relative;overflow:hidden}
+    .site-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+    .site-card:hover{background:rgba(201,169,110,0.07);border-color:rgba(201,169,110,0.25);transform:translateY(-4px)}
+    .site-card:hover::before{transform:scaleX(1)}
+
+    .card-emoji{font-size:2.25rem;margin-bottom:1.25rem;display:block}
+    .card-title{font-family:'Cormorant',serif;font-size:1.6rem;font-weight:400;margin-bottom:0.5rem;line-height:1.2}
+    .card-title em{font-style:italic;color:var(--gold)}
+    .card-desc{font-size:0.82rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.65;margin-bottom:1.25rem}
+    .card-link{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.4rem}
+    .card-link::after{content:'→'}
+
+    .site-card.full{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center}
+    .site-card.full .card-emoji{font-size:3rem;margin-bottom:0}
+
+    .note{font-size:0.78rem;color:rgba(255,255,255,0.25);line-height:1.6}
+    .note strong{color:rgba(255,255,255,0.45)}
+
+    @media(max-width:600px){.sites{grid-template-columns:1fr}.site-card.full{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="hub">
+  <p class="eyebrow">Website Präsentation</p>
+  <h1>Evelyne Faye –<br><em>Redesign Konzept</em></h1>
+  <p class="subtitle">Erstellt von Ian Faye Horak · Alle Seiten sind miteinander verlinkt und voll funktionsfähig.</p>
+
+  <div class="sites">
+    <!-- MAIN SITE -->
+    <a href="evelyne-redesign.html" class="site-card full">
+      <span class="card-emoji">🌿</span>
+      <div>
+        <p class="card-title">Evelyne Faye – <em>Neue Homepage</em></p>
+        <p class="card-desc">Vollständiges Redesign der evelynefaye.com Startseite — mit Über mich, Filme, Bücher, Vorträge und Kontakt. Forest-Green & Gold Editorial-Stil, Cormorant Garamond Typografie.</p>
+        <span class="card-link">Homepage öffnen</span>
+      </div>
+    </a>
+
+    <!-- SUB PAGES -->
+    <a href="ueber-mich.html" class="site-card">
+      <span class="card-emoji">👤</span>
+      <p class="card-title"><em>Über mich</em></p>
+      <p class="card-desc">Biografie, Zeitstrahl und Werte — mit persönlichen Fotos und Story.</p>
+      <span class="card-link">Seite öffnen</span>
+    </a>
+
+    <a href="filme.html" class="site-card">
+      <span class="card-emoji">🎬</span>
+      <p class="card-title"><em>Filme</em></p>
+      <p class="card-desc">»Lass mich fliegen« mit Preisen, Pressetext und Buchungs-CTA. Plus »Mixed Feelings« Teaser.</p>
+      <span class="card-link">Seite öffnen</span>
+    </a>
+
+    <a href="buecher.html" class="site-card">
+      <span class="card-emoji">📖</span>
+      <p class="card-title"><em>Bücher</em></p>
+      <p class="card-desc">»Du bist da« und »Das Dingsda« — mit Details, Kauflinks und Schulangeboten.</p>
+      <span class="card-link">Seite öffnen</span>
+    </a>
+
+    <a href="kontakt.html" class="site-card">
+      <span class="card-emoji">✉️</span>
+      <p class="card-title"><em>Kontakt</em></p>
+      <p class="card-desc">Split-Screen Kontaktseite mit Anfrage-Formular und Buchungsoptionen.</p>
+      <span class="card-link">Seite öffnen</span>
+    </a>
+
+    <!-- MAMMA C -->
+    <a href="index.html" class="site-card full">
+      <span class="card-emoji">🎀</span>
+      <div>
+        <p class="card-title">Mamma C. Puppe™ – <em>Landing Page</em></p>
+        <p class="card-desc">Eigenständige Produktseite für die Mamma C. Puppe™ — dreisprachig (DE/EN/FR), mit Early-Access-Formular. Live auf GitHub Pages: ianfhorak-jpg.github.io/mamma-c-puppe/</p>
+        <span class="card-link">Produktseite öffnen</span>
+      </div>
+    </a>
+  </div>
+
+  <p class="note"><strong>Alle Seiten</strong> sind miteinander verlinkt · Keine WordPress-Abhängigkeiten · Einzelne HTML-Dateien</p>
+</div>
+</body>
+</html>
